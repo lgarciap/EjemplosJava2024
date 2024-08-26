@@ -6,6 +6,7 @@ import java.awt.BorderLayout;
 import javax.swing.border.TitledBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -88,16 +89,22 @@ public class PrincipalGUI {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("Le di al botón "+cantAsig+" veces");
-			if (cantAsig<50)
+			try{
+				if (cantAsig<50)
 				miSemestre.llenarAsignaturas(cantAsig,tfMateria.getText(), Float.parseFloat(tfNota.getText()));
-			else
-			{
-				tfMateria.setEnabled(false);
-				tfNota.setEnabled(false);
+				else
+				{
+					tfMateria.setEnabled(false);
+					tfNota.setEnabled(false);
+				}
+				tfMateria.setText("");
+				tfNota.setText("");
+				cantAsig++;
+			}catch (Exception error){
+				JOptionPane.showMessageDialog(fVentanita, "Ingrese un numero no sea malcriado", "Puso letras", JOptionPane.ERROR_MESSAGE);
+				tfNota.setText("");
 			}
-			tfMateria.setText("");
-			tfNota.setText("");
-			cantAsig++;
+			
 		}
 		
 	}

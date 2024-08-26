@@ -1,4 +1,7 @@
-public class Materia{
+import java.util.Comparator;
+
+public class Materia {
+
     private String nombre;
     private float nota;
 
@@ -45,7 +48,5 @@ public class Materia{
         else
             return false;
     }
-
-
 
 }
