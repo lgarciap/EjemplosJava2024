@@ -1,14 +1,17 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
+        Persistencia miarchivo = new Persistencia("archivo.csv");
         String nombreMateria="";
         float nota = 0;
         System.out.println("Ingrese la cantidad de materias: ");
         int cant = teclado.nextInt();
         Semestre miSemestre = new Semestre(cant);
         teclado.nextLine();
+        ArrayList<String> lineas = new ArrayList<String>();
         for(int i=0;i<cant;i++){
             System.out.println("Ingrese el nombre de la materia "+(i+1)+": ");
             nombreMateria = teclado.nextLine();
@@ -16,8 +19,9 @@ public class Principal {
             nota = teclado.nextInt();
             teclado.nextLine();
             miSemestre.llenarAsignaturas(i, nombreMateria, nota);
+            lineas.add(nombreMateria+","+nota);
         }
-
+        miarchivo.escribirArchivo("nombre,nota", lineas);
         System.out.println("Mostrar la primera asignatura: ");
         System.out.println(miSemestre.getAsignaturas()[0].toString());
         System.out.println("Su promedio es: ");
