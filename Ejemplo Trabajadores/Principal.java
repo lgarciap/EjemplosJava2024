@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        CES uvg =  new CES();
+        CESPolimorfico uvg =  new CESPolimorfico();
         String nombre, direccion, nit;
         long dpi;
         float salarioBase;
@@ -58,14 +58,18 @@ public class Principal {
             
         }
 
+        
         float salarioDoc = uvg.calcularSalarioDocentes();
         float salarioNoDoc = uvg.calcularSalarioNoDocentes();
         float nomina = uvg.calcularNomina();
+        float antiguedadDocente = uvg.promedioAntiguedadDocentes();
 
         System.out.println("El salario total para docentes es: "+salarioDoc);
         System.out.println("El salario total para no docentes es: "+salarioNoDoc);
-        System.out.println("La nómina es: "+nomina);
-
         
+        System.out.println("La nómina es: "+nomina);
+        System.out.println("El promedio de la antiguedad docente: "+antiguedadDocente);
+
+       
     }
 }
