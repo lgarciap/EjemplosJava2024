@@ -18,6 +18,10 @@ public class CESPolimorfico {
 
    
 
+    
+    /** 
+     * @return float
+     */
     public float calcularSalarioDocentes(){
         float salario = 0;
         for (Trabajador trab:trabajadores){
@@ -43,7 +47,7 @@ public class CESPolimorfico {
         }
         return suma;
     }
-
+    /* */
     public void agregarDocente(String nombre, String direccion, long dpi, String nit, 
     float salarioBase, int horasAusencia,int antiguedad, 
     boolean master, boolean doctorado){
@@ -51,6 +55,16 @@ public class CESPolimorfico {
         trabajadores.add(maestro);   
     }
 
+    
+    /** 
+     * @param nombre
+     * @param direccion
+     * @param dpi
+     * @param nit
+     * @param salarioBase
+     * @param horasAusencia
+     * @param cantFeriados
+     */
     public void agregarNoDocente(String nombre, String direccion, long dpi, String nit, float salarioBase, int horasAusencia,int cantFeriados){
         NoDocente administrativo = new NoDocente(nombre, direccion, dpi, nit, salarioBase, horasAusencia, cantFeriados);
         trabajadores.add(administrativo);
